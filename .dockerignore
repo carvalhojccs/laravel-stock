@@ -1,0 +1,6 @@
+.env
+node_modules
+vendor
+docker-compose.yml
+Dockerfile
+public/build
