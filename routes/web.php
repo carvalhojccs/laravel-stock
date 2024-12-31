@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Orders\OrdersCreate;
+use App\Livewire\Users\UsersIndex;
+use App\Livewire\Users\UsersShow;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,6 +18,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/users', UsersIndex::class)->name('users.index');
+    Route::get('/users/{user}', UsersShow::class)->name('users.show');
+    Route::get('/orders', OrdersCreate::class)->name('orders.create');
 });
 
 require __DIR__.'/auth.php';

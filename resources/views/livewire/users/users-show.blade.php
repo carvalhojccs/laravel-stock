@@ -1,0 +1,1 @@
+<livewire:users.type.logistic-operator-show />
