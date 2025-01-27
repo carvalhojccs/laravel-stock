@@ -2,6 +2,20 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <!-- User Type -->
+        <div>
+            <x-input-label for="identification_type" :value="__('Tipo de usuário')" />
+            <x-text-input id="identification_type" class="block mt-1 w-full" type="text" name="identification_type" :value="old('identification_type')" required autofocus autocomplete="identification_type" />
+            <x-input-error :messages="$errors->get('identification_type')" class="mt-2" />
+        </div>
+
+        <!-- User Identification -->
+        <div>
+            <x-input-label for="identification" :value="__('Identificação')" />
+            <x-text-input id="identification" class="block mt-1 w-full" type="text" name="identification" :value="old('identification')" required autofocus autocomplete="identification" />
+            <x-input-error :messages="$errors->get('identification')" class="mt-2" />
+        </div>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />

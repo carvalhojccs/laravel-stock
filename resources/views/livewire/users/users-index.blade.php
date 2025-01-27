@@ -2,6 +2,13 @@
     <div class="mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class="p-2">
+                    <h1 class="mb-2 font-semibold text-gray-900 ">Cadastrar:</h1>
+                    <x-primary-button wire:navigate href="{{ route('users.create') }}">{{ __('Usuário') }}</x-primary-button>
+                    <x-primary-button wire:navigate href="{{ route('users.employees.create') }}">{{ __('Funcionário') }}</x-primary-button>
+                    <x-primary-button wire:navigate href="{{ route('users.doctors.create') }}">{{ __('Médico') }}</x-primary-button>
+                    <x-primary-button wire:navigate href="{{-- route('users.doctors.create') --}}">{{ __('Fornecedor') }}</x-primary-button>
+                </div>
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
@@ -32,7 +39,9 @@
                                 {{ $user->email }}
                             </td>
                             <td class="px-6 py-4">
-                                Operador Logístico
+                                @foreach ( $user->types  as $type)
+                                    {{ $type->description }}
+                                @endforeach
                             </td>
                             <td class="px-6 py-4">
                                 @if ( $user->last_login_at )

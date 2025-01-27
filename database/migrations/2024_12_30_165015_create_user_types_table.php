@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_types', function (Blueprint $table) {
             $table->id()->comment('Primary key');
-            $table->tinyInteger('type')->unique()->comment('System user type');
+            $table->string('type')->unique()->comment('System user type');
             $table->string('description')->comment('System user type description');
             $table->timestamps();
         });
